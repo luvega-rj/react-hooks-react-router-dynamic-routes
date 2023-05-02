@@ -1,11 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import App from "./components/App";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavBar from './NavBar';
+import MoviesPage from './MoviesPage';
 
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById("root")
-);
+function App() {
+  return (
+    <Router>
+      <div>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/movies" component={MoviesPage} />
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
